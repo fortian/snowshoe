@@ -39,6 +39,8 @@ public:
     Q_INVOKABLE bool contains(const QString& url);
     Q_INVOKABLE void togglePin(const QString& url);
 
+    virtual QHash<int,QByteArray> roleNames() const;
+
 Q_SIGNALS:
     void countChanged();
 

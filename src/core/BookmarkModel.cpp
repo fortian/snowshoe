@@ -33,8 +33,6 @@ void BookmarkModel::generateRoleNames()
 {
     for (int i = 0; i < this->columnCount(); i++)
         m_roles[Qt::UserRole + i] = this->headerData(i, Qt::Horizontal).toByteArray();
-
-    setRoleNames(m_roles);
 }
 
 QString BookmarkModel::tableCreateQuery() const
@@ -103,6 +101,11 @@ void BookmarkModel::togglePin(const QString& url)
         remove(url);
     else
         insert(url, url);
+}
+
+QHash<int, QByteArray> BookmarkModel::roleNames() const
+{
+    return m_roles;
 }
 
 void BookmarkModel::update(int index, const QString& name, const QString& url)
