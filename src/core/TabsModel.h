@@ -37,6 +37,7 @@ public:
     QObject* currentWebView();
     int currentWebViewIndex() { return m_currentWebViewIndex; };
     void setCurrentWebViewIndex(int);
+    virtual QHash<int,QByteArray> roleNames() const;
 
 public slots:
     void append(QObject* webView);
@@ -56,6 +57,7 @@ private:
     typedef QList<QPointer<QObject> > TabsList;
     TabsList m_list;
     int m_currentWebViewIndex;
+    QHash<int, QByteArray> m_roles;
 };
 
 

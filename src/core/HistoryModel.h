@@ -34,6 +34,7 @@ public:
 
     Q_INVOKABLE void insert(const QString& url, const QString& title);
     void populate();
+    virtual QHash<int,QByteArray> roleNames() const;
 
 Q_SIGNALS:
     void filterStringChanged();

@@ -30,8 +30,6 @@ void HistoryModel::generateRoleNames()
 {
     for (int i = 0; i < this->columnCount(); i++)
         m_roles[Qt::UserRole + i] = this->headerData(i, Qt::Horizontal).toByteArray();
-
-    setRoleNames(m_roles);
 }
 
 QString HistoryModel::tableCreateQuery() const
@@ -45,6 +43,11 @@ void HistoryModel::populate()
 {
     sortByRecentlyVisited();
     select();
+}
+
+QHash<int, QByteArray> HistoryModel::roleNames() const
+{
+    return m_roles;
 }
 
 void HistoryModel::insert(const QString& url, const QString& title)

@@ -1,7 +1,7 @@
 TEMPLATE = app
 TARGET = ../snowshoe
 
-QT += sql widgets webkit-private quick core-private gui-private quick-private
+QT += sql widgets webkitwidgets quick core-private gui-private quick-private
 
 LIBS += -Lcore/ -lsnowshoe
 

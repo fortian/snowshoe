@@ -99,10 +99,8 @@ void TabsModel::remove(int pos)
 
 void TabsModel::generateRolenames()
 {
-    QHash<int, QByteArray> roles;
-    roles[UrlRole] = QByteArray("url");
-    roles[ThumbnailRole] = QByteArray("thumbnail");
-    setRoleNames(roles);
+    m_roles[UrlRole] = QByteArray("url");
+    m_roles[ThumbnailRole] = QByteArray("thumbnail");
 }
 
 void TabsModel::setCurrentWebViewIndex(int pos)
@@ -113,6 +111,11 @@ void TabsModel::setCurrentWebViewIndex(int pos)
     m_currentWebViewIndex = pos;
     emit currentWebViewIndexChanged();
     emit currentWebViewChanged();
+}
+
+QHash<int, QByteArray> TabsModel::roleNames() const
+{
+    return m_roles;
 }
 
 QObject* TabsModel::currentWebView()
